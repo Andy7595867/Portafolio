@@ -1,0 +1,409 @@
+/* ==========================================================================
+   CONFIGURACION GENERAL Y RESET
+   ========================================================================== */
+*{
+    box-sizing: border-box; /* Garantiza que padding y bordes no desborden los contenedores */
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces del menu */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontal innecesarias */
+    font-family: 'Poppins', sans-serif; 
+    background: rgba(243, 230, 240, 0.76);
+}
+
+/* Contenedor principalque  mantiene el fondo floral original fijo al hacer scroll */
+.agrupar {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('sio.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* -------------------------------------------------------------------------
+   MENU DE NAVEGACION Personalizacion sobre .navbar de Bulma)
+   --------------------------------------------------------------------------*/
+.menu-principal {
+    box-shadow: 0 3px 12px rgba(181, 43, 101, 0.08);
+    padding: 0.6rem 1rem;
+    position: sticky; /* Mantiene el menu visible en la parte soperior */
+    top: 0;
+    z-index: 30;
+}
+
+.enlace-menu {
+    color: #3a3a3a;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+}
+
+.enlace-menu:hover {
+    color: #c2185b !important; /* Sobrescribe el azul por defecto de Bulma al pasar el cursor */
+    background-color: transparent !important;
+}
+
+/* --------------------------------------------------------------------------
+   CABECERA y PORTADA que se Personalizo sobre hero de Bulma)
+   --------------------------------------------------------------------------*/
+.cabecera {
+    background-color: #f8c6d8;
+    background-image: url('pagina.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ubica el contenido en la parte superior */
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+.cabecera .hero-body {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start; /* Empuja la tarjeta hacia el lado izquierdo */
+    align-items: flex-start;     /* La pega a la esquina superior (cambia a 'center' si la prefieres a mitad de altura) */
+    padding: 1rem 1rem;
+}
+
+/* Anula el margen automático del .container de Bulma para acercar la tarjeta al borde izquierdo */
+.cabecera .container {
+    margin-left: 0;
+    max-width: 100%;
+}
+
+
+/* Efecto vidrio esmerilado  */
+.bloque-marca {
+    max-width: 420px;
+    text-align: center;
+    padding: 25px;
+    margin-top:-120px;
+    left: -90px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 25px rgba(181, 43, 101, 0.08);
+}
+
+.fotologo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 30%; /* Recorte circular limpio */
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 14px rgba(181, 43, 101, 0.15);
+}
+
+.titulo {
+    font-family: "Allura", cursive; /* Conserva la tipografia caligrafica distintiva de la marca */
+    font-size: 52px;
+    font-weight: 400;
+    color: #2b1d24;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+
+.subtitulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #4a353f;
+}
+
+/* --------------------------------------------------------------------------
+   SECCION DE SERVICIOS Y TARJETAS de Personalizacion sobre box y tag de Bulma
+   -----------------------------------------------------------------------*/
+.servicios {
+    font-family: "Allura", cursive;
+    font-size: 68px;
+    font-weight: 400;
+    color: #2b1d24;
+    line-height: 1.1;
+}
+
+/* Tarjetas de mi pagina*/
+.tarjeta-flores {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(6px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 25px rgba(181, 43, 101, 0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/*  elevacion suave al pasar el cursor sobre la tarjeta */
+.tarjeta-flores:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(181, 43, 101, 0.14);
+}
+
+.foto {
+    width: 700px;
+    height: 300px;
+    border-radius: 5%;
+    object-fit: cover;
+    border: 5px solid #fde2e8;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.06);
+}
+
+.titulo-tarjeta {
+    font-family: "Allura", cursive;
+    font-size: 42px;
+    color: #b52b65;
+    line-height: 1.1;
+}
+
+.lista-servicios {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+/* No hago comentarios en algunos de estas partes, porque el nombre es bastante claro */
+
+.lista-servicios strong {
+    color: #c2185b;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.gap-precio {
+    gap: 10px;
+    margin-bottom: 4px;
+}
+
+/* Personalizacion de color para la etiqueta tag de Bulma en los precios */
+.precio-badge {
+    background-color: #fde2e8 !important;
+    color: #880e4f !important;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.lista-servicios p {
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   BARRA LATERAL DE CONTACTO
+   --------------------------------------------------------------------------*/
+.tarjeta-contacto {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(6px);
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 25px rgba(181, 43, 101, 0.08);
+    padding: 1.8rem;
+}
+
+.titulo-contacto {
+    font-family: "Allura", cursive;
+    font-size: 40px;
+    color: #b52b65;
+    text-align: center;
+    line-height: 1.1;
+}
+
+.linea-rosa {
+    background-color: #f7c8d3;
+    height: 1px;
+    margin: 12px 0 18px 0;
+}
+
+.item-contacto {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    color: #3a3a3a;
+}
+
+.item-contacto a {
+    color: #c2185b;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.item-contacto a:hover {
+    color: #880e4f;
+    text-decoration: underline;
+}
+
+.foto3 {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------
+   GALERIA DE 3 COLUMNAS
+   -------------------------------------------------------------------------- */
+.titulo-galeria {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #5e4350;
+}
+
+.foto-galeria {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid #ffffff;
+    box-shadow: 0 8px 22px rgba(181, 43, 101, 0.14);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto zoom suave al pasar el cursor sobre cada foto de la galería */
+.foto-galeria:hover {
+    transform: scale(1.05);
+}
+
+/* -----------------------------------------------------------------------
+   El pie de ls pagina que se Personalizo sobre footer y button de Bulma)
+   ---------------------------------------------------------------- */
+.pie {
+    width: 100%;
+    background-color: #f6d5ea;
+    padding: 60px 30px;
+    margin-top: 30px;
+    text-align: left;
+    border-top: 1px solid #f0b8da;
+}
+
+.pie-contenedor {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.pie-columna {
+    padding: 10px 35px;
+}
+
+.pie-centro {
+    text-align: center;
+}
+
+/* Lineas divisorias  */
+.pie-borde {
+    border-left: 1px solid rgba(181, 43, 101, 0.15);
+    border-right: 1px solid rgba(181, 43, 101, 0.15);
+}
+
+.pie-titulo {
+    color: #4a353f;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.pie-titulo-redes {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.pie-texto {
+    color: #6b535e;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* Personalizacion del componente button de Bulma  */
+.btn-rosa {
+    background-color: #df0a83;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 12px 30px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-rosa:hover {
+    background-color: #b8076b;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.pie-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pie-lista li {
+    margin-bottom: 12px;
+}
+
+.pie-lista a {
+    text-decoration: none;
+    color: #6b535e;
+    font-size: 13px;
+    transition: color 0.2s ease;
+}
+
+.pie-lista a:hover {
+    color: #df0a83;
+}
+
+.pie-redes {
+    display: flex;
+    gap: 10px;
+}
+
+.red-circulo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #df0a83;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.red-circulo:hover {
+    background-color: #b8076b;
+    color: #ffffff;
+    transform: scale(1.08);
+}
+
+/* adaptacion para dispositivos moviles */
+@media (max-width: 768px) {
+    .pie-borde {
+        border-left: none;
+        border-right: none;
+        border-top: 1px solid rgba(181, 43, 101, 0.15);
+        border-bottom: 1px solid rgba(181, 43, 101, 0.15);
+        padding: 25px 15px;
+    }
+    .pie-columna {
+        padding: 10px 15px;
+        text-align: center;
+    }
+    .pie-redes {
+        justify-content: center;
+    }
+}
